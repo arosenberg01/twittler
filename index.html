@@ -7,21 +7,29 @@
   <body>
     <script>
 
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+    $(document).ready(function(){  
+      var $body = $('body');
+      $body.html('');
+      var index = 0;
+      var counter = 0;
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+      var showTweet = function() {
+        var tweet = streams.home[index];
+        var $tweet = $('<div></div>');
+        $tweet.text('@' + tweet.user + ': ' + tweet.message);
+        $tweet.appendTo($body);
+        index++;
+        counter++;
+      }
+      
+      var startTweets = setInterval(function () {
+        showTweet();
+      }, 1000);
 
-      });
+    });
 
     </script>
   </body>
 </html>
+
+
