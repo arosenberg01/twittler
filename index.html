@@ -10,20 +10,20 @@
     $(document).ready(function(){  
       var $body = $('body');
       var tweeted = 0;
-      var maxTweets = 5;
+      var maxTweets = 20;
       $body.html('');
 
       var showTweet = function() {
-        var tweet = streams.home[tweeted];
+        var tweet = streams.home[streams.home.length-1];
         var $tweet = $('<div></div>');
-        $tweet.text('@' + tweet.user + ': ' + tweet.message);
-        $tweet.appendTo($body);
+        $tweet.text('@' + tweet.user + ': ' + tweet.message + " - " + tweet.created_at);
+        $tweet.prependTo($body);
         tweeted++;
       }
 
       var removeTweet = function() {
         var $divs = $('div');
-        $divs[0].remove();
+        $divs[$divs.length-1].remove();
       }
       
       var startTweets = setInterval(function () {
