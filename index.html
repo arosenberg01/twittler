@@ -9,21 +9,28 @@
 
     $(document).ready(function(){  
       var $body = $('body');
+      var tweeted = 0;
+      var maxTweets = 5;
       $body.html('');
-      var index = 0;
-      var counter = 0;
 
       var showTweet = function() {
-        var tweet = streams.home[index];
+        var tweet = streams.home[tweeted];
         var $tweet = $('<div></div>');
         $tweet.text('@' + tweet.user + ': ' + tweet.message);
         $tweet.appendTo($body);
-        index++;
-        counter++;
+        tweeted++;
+      }
+
+      var removeTweet = function() {
+        var $divs = $('div');
+        $divs[0].remove();
       }
       
       var startTweets = setInterval(function () {
         showTweet();
+         if (tweeted > maxTweets) {
+          removeTweet();
+        }
       }, 1000);
 
     });
