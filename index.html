@@ -6,41 +6,21 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
+    <script id="tweet-template" type="text/x-handlebars-template">
+      {{#tweetList}}
+        <li class="tweet">
+          <h3>{{user}}</h3>
+          <span class="message">{{message}}</span>
+          <span class="time">{{timestamp}}</span>
+        </li>
+      {{/tweetList}}
+    </script>
   </head>
   <body>
-    <script>
-
-    $(document).ready(function(){  
-      var $body = $('body');
-      var tweeted = 0;
-      var maxTweets = 5;
-      $body.html('');
-
-      var showTweet = function() {
-        var tweet = streams.home[streams.home.length-1];
-        var $tweet = $('<div class="tweet' + ' ' + tweet.user + '"></div>');
-        console.log(tweet.user);
-        var tweetTimeFromNow = moment(tweet.created_at).fromNow();
-        $tweet.text('@' + tweet.user + ': ' + tweet.message + " - " + tweetTimeFromNow);
-        $tweet.prependTo($body);
-        tweeted++;
-      }
-
-      var removeTweet = function() {
-        var $divs = $('div');
-        $divs[$divs.length-1].remove();
-      }
-      
-      var startTweets = setInterval(function () {
-        showTweet();
-         if (tweeted > maxTweets) {
-          removeTweet();
-        }
-      }, 3000);
-
-    });
-
-    </script>
+    <ul class="tweetList">
+    </ul>
+  <script src="app.js"></script>
   </body>
 </html>
 
