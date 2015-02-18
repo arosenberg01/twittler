@@ -1,9 +1,12 @@
 $(document).ready(function(){  
+  
+  var tweetIndex;
   var tweetCount = 0;
   var maxTweets = 5;
   
   var createTweet = function() {
-    var currentTweet = streams.home[streams.home.length-1];
+    tweetIndex = streams.home.length-1;
+    var currentTweet = streams.home[tweetIndex];
     currentTweet.timestamp = moment(currentTweet.created_at).fromNow();
 
     var tweetData = {
@@ -20,16 +23,21 @@ $(document).ready(function(){
 
   var removeTweet = function() {
     var $li = $('li');
-      $li[$li.length-1].remove();
+    $li[$li.length-1].remove();
   }
 
-  var startTweets = setInterval(function() {
-    if (tweetCount >= maxTweets) {
-      removeTweet();
+  var showTweets = setInterval(function() {
+    if (tweetIndex !== streams.home.length-1) {
+      console.log('new tweet');
+      if (tweetCount >= maxTweets) {
+        removeTweet();
+      }
+      createTweet();
+      tweetCount++
     }
-    createTweet();
-    tweetCount++
-  }, 1000);
+  }, 1);
+
+
 
 
 
