@@ -5,28 +5,6 @@ $(document).ready(function(){
   var tweetHistory = streams.home;
   var lastTweet;
 
-  var each = function(collection, iterator) {
-    if (Array.isArray(collection)) {
-      for (var i = 0; i < collection.length; i++) {
-        iterator(collection[i], i, collection);
-      }
-    } else {
-      for (var key in collection) {
-        iterator(collection[key], key, collection);
-      }
-    }
-  };
-
-  var filter = function(collection, test) {
-    var results = [];
-    each(collection, function(item) {
-      if (test(item)) {
-        results.push(item);
-      }
-    });
-    return results;
-  };
-
   $(document.body).on('click', 'a', function() {
     
     var targetUser = this.className;
@@ -40,11 +18,10 @@ $(document).ready(function(){
 
   var createTweets = function(tweetBank) {
     var tweetData = {
-      tweetList: [
-      ]
+      tweetList: []
     }
     
-    for (var i = 1; i < maxTweets + 1; i++) {
+    for (var i = 1; i <= maxTweets; i++) {
       var currentTweet = tweetHistory[tweetHistory.length-i];
       if (currentTweet !== undefined) {
         currentTweet.timestamp = moment(currentTweet.created_at).fromNow();
@@ -60,7 +37,7 @@ $(document).ready(function(){
       $('.tweetList').html(tweetHtml);
       lastTweet = tweetTemplate(tweetData);
     } 
-  } 
+  }; 
 
   var showTweets = setInterval(function() {
       createTweets(tweetHistory);
