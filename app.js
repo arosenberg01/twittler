@@ -2,13 +2,8 @@ $(document).ready(function(){
   
   var maxTweets = 10;
   var tweetDelay = 100;
-  var tweetFilter = null;
   var tweetHistory = streams.home;
   var lastTweet;
-  
-  var generateTweets = function(tweetSelection) {
-    
-  }
 
   var each = function(collection, iterator) {
     if (Array.isArray(collection)) {
@@ -35,10 +30,12 @@ $(document).ready(function(){
   $(document.body).on('click', 'a', function() {
     
     var targetUser = this.className;
-    var userTweets = streams.users[targetUser];
-    console.log(targetUser + " length: " + userTweets.length);
-    tweetHistory = userTweets;
-
+    if (targetUser !== "all") {
+      tweetHistory = streams.users[targetUser];
+ 
+    } else {
+      tweetHistory = streams.home;
+    }
   });
 
   var createTweets = function(tweetBank) {
@@ -62,8 +59,7 @@ $(document).ready(function(){
     if (tweetHtml !== lastTweet) {
       $('.tweetList').html(tweetHtml);
       lastTweet = tweetTemplate(tweetData);
-    }
-    
+    } 
   } 
 
   var showTweets = setInterval(function() {
