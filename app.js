@@ -1,9 +1,17 @@
+var visitor = prompt("What's your name?");
+streams.users[visitor] = [];
+
 $(document).ready(function(){  
   
   var maxTweets = 10;
   var tweetDelay = 100;
   var tweetHistory = streams.home;
   var lastTweet;
+
+  $('#submitTweet').on('click', function() {
+    var userTweet = $('#userTweet').val();
+    writeTweet(userTweet);
+  });
 
   $(document.body).on('click', 'a', function() {
     var targetUser = this.className;
