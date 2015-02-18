@@ -1,6 +1,10 @@
+ul {
+	list-style-type: none;
+}
+
 .tweet {
-	margin: 1em;
-	/*padding: 1em;*/
+	margin: .1em;
+	padding: .5em;
 	border: 2px solid gray;
 
 }

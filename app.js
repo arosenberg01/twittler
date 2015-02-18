@@ -2,24 +2,30 @@ $(document).ready(function(){
   
   var tweetIndex;
   var tweetCount = 0;
-  var maxTweets = 5;
-  
-  var createTweet = function() {
-    tweetIndex = streams.home.length-1;
-    var currentTweet = streams.home[tweetIndex];
-    currentTweet.timestamp = moment(currentTweet.created_at).fromNow();
+  var maxTweets = 10;
+  var tweetDelay = 1000;
+  var tweetFilter = null;
 
+  var createTweet = function() {
+  
     var tweetData = {
       tweetList: [
-        currentTweet
       ]
+    }
+    
+    for (var i = 1; i < maxTweets + 1; i++) {
+      var currentIndex = streams.home.length-i; 
+      var currentTweet = streams.home[currentIndex];
+      currentTweet.timestamp = moment(currentTweet.created_at).fromNow();
+      tweetData.tweetList.push(currentTweet);
     }
     var tweetSource = $("#tweet-template").html();
     var tweetTemplate = Handlebars.compile(tweetSource);
     var tweetHtml = tweetTemplate(tweetData);
   
     $('.tweetList').prepend(tweetHtml);
-  }
+    maxTweets = 1;
+  } 
 
   var removeTweet = function() {
     var $li = $('li');
@@ -28,18 +34,15 @@ $(document).ready(function(){
 
   var showTweets = setInterval(function() {
     if (tweetIndex !== streams.home.length-1) {
-      console.log('new tweet');
       if (tweetCount >= maxTweets) {
         removeTweet();
       }
       createTweet();
       tweetCount++
     }
-  }, 1);
-
-
-
-
+  }, tweetDelay);
 
 });
+
+
 

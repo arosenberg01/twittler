@@ -10,8 +10,8 @@
     <script id="tweet-template" type="text/x-handlebars-template">
       {{#tweetList}}
         <li class="tweet">
-          <h3>{{user}}</h3>
-          <span class="message">{{message}}</span>
+          <a href="#" class="{{{user}}}">@{{user}}</a>
+          <span class="message">{{message}} ----------</span>
           <span class="time">{{timestamp}}</span>
         </li>
       {{/tweetList}}
@@ -19,7 +19,7 @@
   </head>
   <body>
     <ul class="tweetList">
-    </ul>
+    </ul> 
   <script src="app.js"></script>
   </body>
 </html>
