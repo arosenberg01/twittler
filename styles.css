@@ -48,25 +48,76 @@ ul {
 	margin: 0 auto;
 }
 
+a {
+	text-decoration: none;
+}
+
+body {
+	background-color: gray;
+}
+
 .tweet {
-	margin: .1em;
+	margin-bottom: .6em;
 	padding: .5em;
-	border: 2px solid gray;
+	/*border-top: 2px solid gray;
+	border-right: 2px solid gray;
+	border-bottom: 2px solid gray;*/
+	/*border-left: 4px solid orange;*/
+	background-color: white;
 
 }
 
-.shawndrost {
-	color: orange;
+
+
+.time {
+	float: right;
 }
 
-.douglascalhoun {
-	color: green;
+
+a {
+	font-weight: bold;
 }
 
-.mracus {
-	color: red;
+.tweet-shawndrost {
+	border-left: 4px solid yellow;
+	margin-bottom: .6em;
+	padding: .5em;
+	/*border-top: 2px solid gray;
+	border-right: 2px solid gray;
+	border-bottom: 2px solid gray;*/
+	/*border-left: 4px solid orange;*/
+	background-color: white;
 }
 
-.sharksforcheap {
-	color: blue;
+.tweet-douglascalhoun {
+	border-left: 4px solid green;
+	margin-bottom: .6em;
+	padding: .5em;
+	/*border-top: 2px solid gray;
+	border-right: 2px solid gray;
+	border-bottom: 2px solid gray;*/
+	/*border-left: 4px solid orange;*/
+	background-color: white;
+}
+
+.tweet-mracus {
+	border-left: 4px solid red;
+	margin-bottom: .6em;
+	padding: .5em;
+	/*border-top: 2px solid gray;
+	border-right: 2px solid gray;
+	border-bottom: 2px solid gray;*/
+	/*border-left: 4px solid orange;*/
+	background-color: white;
+}
+
+.tweet-sharksforcheap {
+	border-left: 4px solid blue;
+	margin-bottom: .6em;
+	padding: .5em;
+	/*border-top: 2px solid gray;
+	border-right: 2px solid gray;
+	border-bottom: 2px solid gray;*/
+	/*border-left: 4px solid orange;*/
+	background-color: white;
 }

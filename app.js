@@ -6,11 +6,9 @@ $(document).ready(function(){
   var lastTweet;
 
   $(document.body).on('click', 'a', function() {
-    
     var targetUser = this.className;
     if (targetUser !== "all") {
       tweetHistory = streams.users[targetUser];
- 
     } else {
       tweetHistory = streams.home;
     }
