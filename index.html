@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles.css">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js">
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
-    <script id="tweet-template" type="text/x-handlebars-template">
+    <script id="tweet-format" type="text/x-handlebars-template">
       {{#tweetList}}
-        <li class="tweet-{{{user}}}">
+        <li class="tweet {{{user}}}">
           <a href="#" class="{{{user}}}">@{{user}}</a>
-          <span class="message">{{message}}</span>
           <span class="time">{{timestamp}}</span>
+          <span class="message">{{message}}</span>
         </li>
       {{/tweetList}}
     </script>
   </head>
   <body>
-  <a href="#" class="all">Home</a>
+  <a href="#" id="home" class="all">Home</a>
   <input type="text" id="userTweet">
   <input type="button" id="submitTweet" value="Submit">
     <div>

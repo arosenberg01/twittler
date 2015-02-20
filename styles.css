@@ -44,13 +44,16 @@ table {
 
 /*-------------*/
 
+
+
 body {
-	background-color: gray;
+	background-color: #90A2B2;
+	font-family: 'Lato', sans-serif;
 }
 
 ul {
 	list-style-type: none;
-	max-width: 75%;
+	max-width: 50%;
 	margin: 0 auto;
 }
 
@@ -64,14 +67,23 @@ a:visited {
 }
 
 .tweet {
-	margin-bottom: .6em;
-	padding: .5em;
+	
+	padding: 1em;
 	background-color: white;
+	color: black;
+	border-bottom: 1px solid #EBEBEB;
+	/*border-right: 2px solid black;*/
+
 
 }
 
 .time {
 	float: right;
+}
+
+.message {
+	display: block;
+	padding: .5em;
 }
 
 #userTweet {
@@ -87,31 +99,24 @@ a:visited {
 	margin: 0 auto 2em auto;;  
 }
 
-.tweet-shawndrost {
+.tweet.shawndrost {
 	border-left: 4px solid yellow;
-	margin-bottom: .6em;
-	padding: .5em;
-	background-color: white;
-	color: black;
 }
 
-.tweet-douglascalhoun {
+.tweet.douglascalhoun {
 	border-left: 4px solid green;
-	margin-bottom: .6em;
-	padding: .5em;
-	background-color: white;
+
 }
 
-.tweet-mracus {
+.tweet.mracus {
 	border-left: 4px solid red;
-	margin-bottom: .6em;
-	padding: .5em;
-	background-color: white;
 }
 
-.tweet-sharksforcheap {
+.tweet.sharksforcheap {
 	border-left: 4px solid blue;
-	margin-bottom: .6em;
-	padding: .5em;
-	background-color: white;
+
+}
+
+#home {
+	color: #FFC669;
 }

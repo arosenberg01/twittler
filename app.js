@@ -1,12 +1,14 @@
-var visitor = prompt("What's your name?");
+var visitor = "ansel" || prompt("What's your name?");
 streams.users[visitor] = [];
 
 $(document).ready(function(){  
   
   var maxTweets = 10;
-  var tweetDelay = 100;
+  var tweetDelay = 10;
   var tweetHistory = streams.home;
-  var lastTweet;
+  var prevTotal;
+  var tweetSource = $("#tweet-format").html();
+  var tweetTemplate = Handlebars.compile(tweetSource);
 
   $('#submitTweet').on('click', function() {
     var userTweet = $('#userTweet').val();
@@ -22,7 +24,7 @@ $(document).ready(function(){
     }
   });
 
-  var createTweets = function(tweetBank) {
+  var createTweets = function() {
     var tweetData = {
       tweetList: []
     }
@@ -33,21 +35,19 @@ $(document).ready(function(){
         currentTweet.timestamp = moment(currentTweet.created_at).fromNow();
         tweetData.tweetList.push(currentTweet);
       } 
-    }  
+    }
 
-    var tweetSource = $("#tweet-template").html();
-    var tweetTemplate = Handlebars.compile(tweetSource);
     var tweetHtml = tweetTemplate(tweetData);
-    
-    if (tweetHtml !== lastTweet) {
-      $('.tweetList').html(tweetHtml);
-      lastTweet = tweetTemplate(tweetData);
-    } 
+    $('.tweetList').html(tweetHtml);
   }; 
 
-  var showTweets = setInterval(function() {
-      createTweets(tweetHistory);
-  }, tweetDelay);
+  (function showTweets() {
+    if (prevTotal !== tweetHistory.length) {
+      prevTotal = tweetHistory.length;
+      createTweets();
+    }
+    setTimeout(showTweets, tweetDelay);
+  })();
 
 });
 
