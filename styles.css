@@ -44,10 +44,14 @@ table {
 
 /*-------------*/
 
-
+*, *:before, *:after {
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
 
 body {
-	background-color: #90A2B2;
+	background-color: #455A64;/*#4AB28C; *//*hsl(201, 38%, 30%);*/ 
 	font-family: 'Lato', sans-serif;
 }
 
@@ -55,11 +59,12 @@ ul {
 	list-style-type: none;
 	max-width: 50%;
 	margin: 0 auto;
+	box-shadow: 3px 3px 2px #888888;
 }
 
 a {
 	text-decoration: none;
-	font-weight: bold;
+/*	font-weight: bold;*/
 }
 
 a:visited {
@@ -72,9 +77,11 @@ a:visited {
 	background-color: white;
 	color: black;
 	border-bottom: 1px solid #EBEBEB;
-	/*border-right: 2px solid black;*/
 
+}
 
+.user {
+	font-weight: 700;
 }
 
 .time {
@@ -84,39 +91,50 @@ a:visited {
 .message {
 	display: block;
 	padding: .5em;
+	font-size: 1.5em;
 }
 
 #userTweet {
 	display: block;
-	/*margin: 0 auto;*/
-	margin: 1em auto 3em auto;
-	padding: 1em;
-	width: 75%;
+	margin: 0 auto;
+    border: none;
+    border-bottom: 1px solid #EBEBEB;;
+	width: 50%;
+	padding: .5em;
+	font-size: 1.5em;
+	box-shadow: 3px 3px 2px #888888;
+	
 }
 
-#submitTweet {
+#new-tweets {
+	background-color: #FFC107;
+	display: block;
+	margin: 0 auto;
+    border: none;
+    border-bottom: 1px solid #EBEBEB;;
+	width: 50%;
+	padding: .5em;
+	font-size: 1.5em;
+	box-shadow: 3px 3px 2px #888888;
+	color: #212121;
+	text-align: center;
+
+}
+
+/*#submitTweet {
 	display: block;
 	margin: 0 auto 2em auto;;  
-}
-
-.tweet.shawndrost {
-	border-left: 4px solid yellow;
-}
-
-.tweet.douglascalhoun {
-	border-left: 4px solid green;
-
-}
-
-.tweet.mracus {
-	border-left: 4px solid red;
-}
-
-.tweet.sharksforcheap {
-	border-left: 4px solid blue;
-
-}
+}*/
 
 #home {
-	color: #FFC669;
+	color: #FFB3A4;/*#B22404*/;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 3em;
+	margin: 1em 0;
+}
+
+#tweets {
+	margin-bottom: 5em;
 }

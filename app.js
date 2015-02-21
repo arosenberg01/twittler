@@ -10,10 +10,20 @@ $(document).ready(function(){
   var tweetSource = $("#tweet-format").html();
   var tweetTemplate = Handlebars.compile(tweetSource);
 
-  $('#submitTweet').on('click', function() {
-    var userTweet = $('#userTweet').val();
-    writeTweet(userTweet);
-  });
+  // $('#submitTweet').on('click', function() {
+  //   var userTweet = $('#userTweet').val();
+  //   writeTweet(userTweet);
+  // });
+
+
+  $(document).keypress(function(e) {
+    if(e.which == 13) {
+      var userTweet = $('#userTweet').val();
+      writeTweet(userTweet);
+      $('#userTweet').val('');
+    }
+});
+
 
   $(document.body).on('click', 'a', function() {
     var targetUser = this.className;
